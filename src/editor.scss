@@ -1,0 +1,67 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@use "sass:map";
+@import "theme";
+$editor-font-size: $font-size * 1.05;
+
+// Mixin to apply theme properties
+@mixin apply-theme($theme) {
+	background-color: map.get($theme, background);
+	color: map.get($theme, text);
+
+	.wp-block-eetezadi-click2share-footer {
+		color: map.get($theme, footer-text);
+	}
+
+	.wp-c2sh-shareicon {
+		fill: map.get($theme, text);
+	}
+
+}
+
+// Applying themes to blocks
+.wp-block-eetezadi-click2share {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: var(--wp--preset--spacing--20);
+	font-size: $editor-font-size;
+	font-style: normal;
+	font-weight: 400;
+	padding: var(--wp--preset--spacing--20);
+	border: 1px solid #d3d3d3;
+
+
+	&.is-style-light {
+
+		@include apply-theme($light-theme);
+	}
+
+	&.is-style-dark {
+
+		@include apply-theme($dark-theme);
+	}
+}
+
+// Footer Line
+.wp-block-eetezadi-click2share-footer {
+	align-self: flex-end;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+// Share Icon Wrapper
+.wp-block-eetezadi-click2share-shareicon {
+	display: inline-flex;
+	width: $font-size;
+	height: $font-size;
+	margin-right: 8px;
+	margin-left: auto;
+
+}

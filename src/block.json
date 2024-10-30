@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "eetezadi/click2share",
+	"icon": "testimonial",
+	"version": "1.3.2",
+	"title": "Click 2 Share",
+	"category": "widgets",
+	"description": "Gutenberg Block Plugin to display a shareable post on Meta Threads, X (formely Twitter) or Reddit.",
+	"keywords": [
+		"social share",
+		"click2share",
+		"social media",
+		"threads",
+		"x",
+		"Reddit",
+		"tweet"
+	],
+	"example": {},
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"post": {
+			"type": "string",
+			"source": "html",
+			"selector": "p",
+			"default": ""
+		},
+		"pageLink": {
+			"type": "string"
+		},
+		"userName": {
+			"type": "string",
+			"default": ""
+		},
+		"shareString": {
+			"type": "string",
+			"default": ""
+		},
+		"linkLabel": {
+			"type": "string"
+		},
+		"theme": {
+			"type": "string"
+		},
+		"socialNetwork": {
+			"type": "string"
+		},
+		"useShortlink": {
+			"type": "boolean"
+		}
+	},
+	"styles": [
+		{
+			"name": "light",
+			"label": "Light",
+			"isDefault": true
+		},
+		{
+			"name": "dark",
+			"label": "Dark"
+		}
+	],
+	"textdomain": "click-2-share",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

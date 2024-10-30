@@ -1,0 +1,76 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+@use "sass:map";
+@import "theme";
+$display-font-size: $font-size * 1.2;
+
+// Mixin to apply theme properties
+@mixin apply-theme($theme) {
+	background-color: map.get($theme, background);
+	color: map.get($theme, text);
+
+	.wp-c2sh-block-footer {
+		color: map.get($theme, footer-text);
+		align-self: flex-end;
+	}
+
+	.wp-c2sh-shareicon {
+		fill: map.get($theme, text);
+	}
+}
+
+// Applying themes to blocks
+.wp-c2sh-block-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 8px;
+	font-size: $display-font-size;
+	font-style: normal;
+	font-weight: 400;
+	padding: 0.75em;
+
+
+	&.is-style-light {
+
+		@include apply-theme($light-theme);
+
+	}
+
+	&.is-style-dark {
+
+		@include apply-theme($dark-theme);
+
+	}
+}
+
+.wp-c2sh-block-icon {
+	fill: $link-color;
+	display: inline-block;
+	width: $font-size;
+	height: $font-size;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+
+.wp-c2sh-block-link {
+	color: $link-color;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&::after {
+		content: "\2197";
+		display: inline-block;
+		margin-left: 5px;
+		font-size: 0.8em;
+		vertical-align: middle;
+	}
+}
